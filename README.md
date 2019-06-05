@@ -24,17 +24,18 @@ First of all renew all the certificates in the master node:
 
 Even when you renew the certificates, you should regenerate the config file with the correct configuration.
 Move admin.conf, scheduler.conf and controller-manager.conf to a backup dir. 
+```
 > mv /etc/kubernetes/admin.conf /backup
 > mv /etc/kubernetes/controller-manager.conf /backup
 > mv /etc/kubernetes/scheduler.conf /backup
-
+```
 Regenerate the files with the correct configuration.
+```
 > kubeadm init phase kubeconfig admin
 > kubeadm init phase kubeconfig controller-manager
 > kubeadm init phase kubeconfig scheduler
-
+```
 restart the master node
  
 ## kubectl
-
 To recover kubectl command line, copy /etc/kubernetes/admin.conf to $HOME/.kube/config
