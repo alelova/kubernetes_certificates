@@ -7,12 +7,14 @@
 
 Check /etc/kubernetes/kubelet.conf it should pint to the right client certificates, in our installation some worker nodes had the certificate included in the conf file.
 We change the configuration to:
-'''
+
+```
 - name: default-auth
   user:
     client-certificate: /var/lib/kubelet/pki/kubelet-client-current.pem
     client-key: /var/lib/kubelet/pki/kubelet-client-current.pem
-'''
+```
+
 restart kubelet service
 
 ## In the master Node
