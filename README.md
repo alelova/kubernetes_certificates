@@ -4,9 +4,12 @@
 # dockerd-current[5080]: E0603 09:09:40.481894       1 authentication.go:65] Unable to authenticate the request due to an error: [x509: certificate has expired or is not yet valid, x509: certificate has expired or is not yet valid]
 
 In every node
+
 ##################
+
 check /etc/kubernetes/kubelet.conf it should pint to the right client certificates, in our installation some worker nodes had the certificate included in the conf file.
 We change the configuration to:
+
 - name: default-auth
   user:
     client-certificate: /var/lib/kubelet/pki/kubelet-client-current.pem
@@ -15,7 +18,9 @@ We change the configuration to:
 restart kubelet service
 
 In the master Node
+
 ##########################
+
 First of all renew all the certificates in the master node:
 > kubeadm alpha certs renew all
 
@@ -33,5 +38,7 @@ Regenerate the files with the correct configuration.
 restart the master node
  
 kubectl
+
 ##########################
+
 To recover kubectl command line, copy /etc/kubernetes/admin.conf to $HOME/.kube/config
