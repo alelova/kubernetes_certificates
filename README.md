@@ -3,7 +3,7 @@
 # centos 7 kubernetes 1.13
 # dockerd-current[5080]: E0603 09:09:40.481894       1 authentication.go:65] Unable to authenticate the request due to an error: [x509: certificate has expired or is not yet valid, x509: certificate has expired or is not yet valid]
 
-Kubernetes certificates expires in one year by default. Then kubelet service fail and kubectl command cant connect to the kubernetes admin api.
+Kubernetes certificates expires in one year by default. Then kubelet service fail and kubectl command cant connect to the kubernetes admin api. We have upgrade in one year from v1.11 to v1.13 and the nodes have differents configurations, depending on the installation data.
 Some of the certificates seems to be auto-regenerated, but the config files were using the old certificates data.
 
 ## In every node
